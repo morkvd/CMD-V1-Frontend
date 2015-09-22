@@ -75,7 +75,8 @@ body > main {
     body > main h3,
     body > main h4,
     body > main ol,
-    body > main p {
+    body > main p,
+    body > main form {
       padding-left: 7rem;
       padding-right: 7rem;
     }
@@ -105,6 +106,30 @@ body > main {
     }
     body > main li {
       margin-bottom: 0.5em; 
+    }
+    body > main form fieldset {
+      margin-bottom: 1em;
+    }
+    body > main form label {
+      width: 100%;
+      display: block;
+      position: relative;
+      margin-bottom: 1em;
+    }
+    body > main form label em {
+      position: absolute;
+      top: 1.5em;
+      right: 0;
+    }
+    body > main form label input,
+    body > main form label textarea {
+      display: block;
+      width: 80%;
+    }
+    body > main form label input[type="radio"],
+    body > main form label input[type="checkbox"] {
+      display: inline-block;
+      width: auto;
     }
 
 
