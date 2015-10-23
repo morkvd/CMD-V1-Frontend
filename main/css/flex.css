@@ -10,10 +10,10 @@ html {
 }
 
 h1 {
-  font-size: 2.00021em;
+  font-size: 2em;
 }
 h2 {
-  font-size: 1.41429em;
+  font-size: 1.414em;
 }
 h3 {
   font-size: 1em; 
@@ -43,8 +43,6 @@ a:hover, a:active, a:focus {
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
-
-
 }
 body > header a,
 aside a {
@@ -52,7 +50,6 @@ aside a {
   background-color: transparent; 
   color: #FFCC00;
 }
-
 /* flexbox structure page*/
 body {
   display: flex;
@@ -60,15 +57,15 @@ body {
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
-  width: 100vw; 
+  width: 100%; 
+  height: 100%;
   margin: 0;
 }
 body > header, 
 body > main, 
 body > section.related, 
 body > aside, 
-body > footer { 
-  /* standard block */  
+body > footer {  
   padding: 2em;
   overflow: auto;
   background-color: white;
@@ -77,30 +74,54 @@ body > footer {
 
 body > header {
   order: 1;
-  flex: 4 1 auto;
+  flex: 4 0.95 auto;
   background-color: black; 
   color: white;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
 }   
     body > header h1 {
-      font-size: 2.00021em;
+      font-size: 1.8em;
       line-height: 100%;
+      margin-top: 0;
       color: white;
       text-shadow: 0px 1px 0px #FC0, 
-                     0px 2px 0px #FC0, 
-                     0px 3px 0px #FC0;
+                      0px 2px 0px #FC0, 
+                      0px 3px 0px #FC0;
+    }
+    body > header p,
+    body > header a {
+      font-size: 1.14em
+    }
+    body > header ul {
+      list-style: outside none none;
+      padding: 0;
+    }
+    body > header li {
+      font-size: 1.3em;
+      padding: 0.3em 0;
     }
     body > header img {
-      width: 100%;
+      width: 70%;
+      align-self: center;
     }
     body > header label, 
     body > header input  {
       display: inline-block;
       width: 100%;
     }
+    body > header input {
+      padding: 0.6em 0.8em;
+    }
     body > header label + button {
       width: 100%;
-      display: block; 
-      margin: 0px auto;
+      display: block;
+      margin: 0.4em auto 0px;
+      padding: 0.3em 0em;
     }
 
 
@@ -116,6 +137,11 @@ body > main {
     }
     body > main.form-block {
       flex: 7 0.7 auto;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease;
     }
     body > main h1,
     body > main h2,
@@ -123,15 +149,16 @@ body > main {
     body > main h4,
     body > main ol,
     body > main p,
-    body > main form {
+    body > main form,
+    body > main div {
       padding-left: 0rem;
       padding-right: 0rem;
     }
     body > main h1 {
-      font-size: 2.00021em;
+      font-size: 2em;
     }
     body > main h2 {
-      font-size: 1.41429em;
+      font-size: 1.414em;
     }
     body > main h3,
     body > main h4 {
@@ -156,6 +183,18 @@ body > main {
     }
     body > main form fieldset {
       margin-bottom: 1em;
+      background-color: #E9E9E9;
+      border: 1px solid #6E6E6E;
+      border-radius: 0em 1.5em;
+    }
+    body > main form fieldset legend {
+      
+    }
+    body > main form fieldset:nth-child(2) {
+      border-radius: 1.5em 0em;
+    }
+    html body > main form fieldset fieldset:nth-child(n) {
+      border-radius: 0em 1.5em 0em; 
     }
     body > main form label {
       width: 100%;
@@ -177,6 +216,10 @@ body > main {
     body > main form label input[type="checkbox"] {
       display: inline-block;
       width: auto;
+    }
+    body > main div {}
+    body > main video {
+      margin: 1em 0;
     }
 
 
@@ -243,12 +286,6 @@ body > aside {
     body > aside section {
       flex: 1 1 100%;
     }
-    body > aside section:first-child {
-      margin-right: 1em; 
-    }
-    body > aside section:last-child {
-      margin-left: 1em; 
-    }
     body > aside section article {
       padding: 1em 2em 2em;
       margin-bottom: 2em;
@@ -288,8 +325,11 @@ body > footer {
       margin-bottom: 4em;
     }
 
+.disabled {
+  display: none;
+}
 
-@media (min-width: 600px) {
+@media (min-width: 37.5em) {
   body > header, 
   body > main, 
   body > section.related, 
@@ -309,27 +349,30 @@ body > footer {
   body > main h4,
   body > main ol,
   body > main p,
-  body > main form {
+  body > main form,
+  body > main div {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
-@media (min-width: 740px) {
+@media (min-width: 46em) {
   body > main h1,
   body > main h2,
   body > main h3,
   body > main h4,
   body > main ol,
   body > main p,
-  body > main form {
+  body > main form,
+  body > main div {
     padding-left: 4rem;
     padding-right: 4rem;
   }
 }
-@media (min-width: 820px) {
+@media (min-width: 51em) {
   body {
     flex-flow: row nowrap;
     width: 400vw; 
+    height: 100%;
   }
   body > header, 
   body > main, 
@@ -340,10 +383,14 @@ body > footer {
     padding: 2em;
     margin: 2em;
     overflow: auto;
-    height: 85vh;
+    height: 89vh;
     -webkit-box-shadow: inset 3px 4px 2px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: inset 3px 4px 2px 0px rgba(0,0,0,0.5);
     box-shadow: inset 3px 4px 2px 0px rgba(0,0,0,0.5);
+  }
+  body > header li {
+    font-size: 1em;
+    padding: 0 0 0.2em;
   }
   body > main h1,
   body > main h2,
@@ -351,30 +398,37 @@ body > footer {
   body > main h4,
   body > main ol,
   body > main p,
-  body > main form {
+  body > main form,
+  body > main div {
     padding-left: 7rem;
     padding-right: 7rem;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 60em) {
   body {
     width: 360vw;
   }
   body > aside section {
     flex: 1 1 40%;
   }
+  body > aside section:first-child {
+    margin-right: 1em; 
+  }
+  body > aside section:last-child {
+    margin-left: 1em; 
+  }
 }
-@media (min-width: 1200px) {
+@media (min-width: 75em) {
   body {
     width: 333vw;
   }
 }
-@media (min-width: 1320px) {
+@media (min-width: 82.5em) {
   body {
     width: 300vw;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 87em) {
   body {
     width: 250vw;
   }
