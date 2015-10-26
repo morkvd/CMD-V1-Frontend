@@ -38,12 +38,23 @@ a {
 a:hover, a:active, a:focus {
   background-color: black; 
   color: #FFCC00;
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
 }
+
+/* From: https://css-tricks.com/snippets/css/signify-pdf-bombs/ */
+/* Add " (PDF)" text after links that go to PDFs */
+a[href$=".pdf"]:after { content: " (PDF)"; }
+a[href$=".jpg"]:after { content: " (JPG)"; }
+
+/* If file size specified as data attribute, use that too */
+a[href$=".pdf"][data-kb]:after { content: " (PDF, " attr(data-kb) "kb)"; }
+a[href$=".jpg"][data-kb]:after { content: " (JPG, " attr(data-kb) "kb)"; }
+a[href$=".mp4"][data-kb]:after { content: " (MP4, " attr(data-kb) "kb)"; }
+
+a[href^="http"]:after,
+a[href^="https"]:after {
+  content: " (external link)";
+}
+
 body > header a,
 aside a {
   display: inline-block; 
@@ -192,9 +203,6 @@ body > main {
       border: 1px solid #6E6E6E;
       border-radius: 0em 1.5em;
     }
-    body > main form fieldset legend {
-      
-    }
     body > main form fieldset:nth-child(2) {
       border-radius: 1.5em 0em;
     }
@@ -222,7 +230,10 @@ body > main {
       display: inline-block;
       width: auto;
     }
-    body > main div {}
+    body > main form input[type="submit"] {
+      margin-bottom: 4em;
+      padding: 0.5em 1em;
+    }
     body > main video {
       margin: 1em 0;
       width: 100%;
@@ -244,14 +255,12 @@ body > main.form-block ~ section.related {
   flex: 3 1.12 auto;
 } 
     body > section.related h2 {
-      flex: 1 0 90%;
       margin: 1em 0;
       margin-bottom: 0.7em;
     }
     body > section.related article {
-      flex: 0 1 100%;
-      margin-bottom: 4em;
-      padding-bottom: 4em;
+      margin-bottom: 2em;
+      padding-bottom: 3em;
       background-color: black;
       color: white;
     }
@@ -260,6 +269,9 @@ body > main.form-block ~ section.related {
       border-top: 1em solid black;
       background-color: #FFCC00;
       color: black;
+    }
+    body > section.related li {
+      margin-bottom: 1.5em;
     }
     body > section.related article h3,
     body > section.related article h4,
@@ -335,6 +347,11 @@ body > footer {
   display: none;
 }
 
+.first {
+  order: 10;
+}
+
+
 @media (min-width: 37.5em) {
   body > header, 
   body > main, 
@@ -364,6 +381,13 @@ body > footer {
   body > main article picture img {
     width: 80%;
     margin-left: 0;
+  }
+  a:hover, a:active, a:focus {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -ms-transform: scale(1.1);
+     -o-transform: scale(1.1);
+     transform: scale(1.1);
   }
 }
 @media (min-width: 46em) {
