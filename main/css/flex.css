@@ -191,9 +191,9 @@ body > main {
       width: 100%;
       margin-left: 0;
     }
-    body > main ol {
+    /*body > main ol {
       padding-left: 10rem;
-    }
+    }*/
     body > main li {
       margin-bottom: 0.5em; 
     }
@@ -207,7 +207,7 @@ body > main {
       border-radius: 1.5em 0em;
     }
     html body > main form fieldset fieldset:nth-child(n) {
-      border-radius: 0em 1.5em 0em; 
+      border-radius: 0em 1.5em 1.5em 0;
     }
     body > main form label {
       width: 100%;
